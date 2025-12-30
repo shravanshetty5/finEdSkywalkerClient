@@ -1,0 +1,14 @@
+# AWS Configuration
+aws_region  = "us-east-1"
+environment = "dev"
+
+# S3 Bucket
+bucket_name = "finedskywalker-client-dev"
+
+# GitHub Configuration
+github_org  = "shravanshetty5"
+github_repo = "finEdSkywalkerClient"
+
+# Backend API URL (for CSP)
+backend_api_url = "https://your-api-gateway-url.execute-api.us-east-1.amazonaws.com"
+
