@@ -71,6 +71,14 @@ resource "aws_iam_role_policy" "github_actions" {
           "${aws_s3_bucket.frontend.arn}/*"
         ]
       },
+      # CloudFront list permissions (no resource-level permissions)
+      {
+        Effect = "Allow"
+        Action = [
+          "cloudfront:ListDistributions"
+        ]
+        Resource = "*"
+      },
       # CloudFront invalidation permissions
       {
         Effect = "Allow"
