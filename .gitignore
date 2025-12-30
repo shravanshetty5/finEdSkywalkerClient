@@ -28,6 +28,10 @@ yarn-error.log*
 .env*.local
 .env
 
+# CI testing
+.secrets
+npm-ci-output.log
+
 # vercel
 .vercel
 
