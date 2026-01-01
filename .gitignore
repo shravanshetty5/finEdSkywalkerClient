@@ -47,4 +47,5 @@ terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
 terraform/*.tfvars
 !terraform/terraform.tfvars.example
+terraform/lambda-edge/function.zip
 
