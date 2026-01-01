@@ -129,6 +129,13 @@ resource "aws_cloudfront_distribution" "frontend" {
 
     viewer_protocol_policy = "redirect-to-https"
     compress               = true # Enable automatic compression (Gzip + Brotli)
+
+    # Lambda@Edge function for dynamic route handling
+    lambda_function_association {
+      event_type   = "origin-request"
+      lambda_arn   = aws_lambda_function.edge_router.qualified_arn
+      include_body = false
+    }
   }
 
   # Ordered cache behavior for Next.js static assets (1 year cache)

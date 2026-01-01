@@ -1,7 +1,5 @@
-'use client'
-
 import React, { createContext, useContext, useState, useEffect } from 'react'
-import { useRouter, usePathname } from 'next/navigation'
+import { useRouter } from 'next/router'
 import { decodeJwt } from 'jose'
 
 interface AuthContextType {
@@ -44,7 +42,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [username, setUsername] = useState<string | null>(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const router = useRouter()
-  const pathname = usePathname()
 
   // Load token from localStorage on mount and validate expiration
   useEffect(() => {
@@ -62,13 +59,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         localStorage.removeItem('auth_username')
         
         // Redirect to login if not already there
-        if (pathname !== '/login') {
+        if (router.pathname !== '/login') {
           router.push('/login')
         }
       }
     }
     setIsLoaded(true)
-  }, [router, pathname])
+  }, [router])
 
   // Save token to localStorage whenever it changes
   useEffect(() => {

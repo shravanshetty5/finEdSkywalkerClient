@@ -1,7 +1,5 @@
-'use client'
-
 import React, { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/router'
 import { useAuth } from '@/contexts/AuthContext'
 
 interface LoginResponse {
@@ -15,7 +13,7 @@ interface ErrorResponse {
   message: string
 }
 
-export default function LoginPage() {
+export default function Login() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
