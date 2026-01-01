@@ -4,8 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Disable server-side features for static export
-  trailingSlash: true,
+  trailingSlash: false,
 }
 
 module.exports = nextConfig
